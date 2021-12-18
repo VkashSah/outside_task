@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const mongoURI = process.env.mongoURI || "mongodb://localhost/vending_machine";
+const routes = require("./routes/index");
 
 const app = express();
 
@@ -30,6 +31,9 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log(`Connected to Database`));
+
+// Use Routes
+app.use("/", routes);
 
 // catch 404
 app.use((req, res) => {
