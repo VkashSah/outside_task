@@ -18,8 +18,8 @@ desired drinks. The drinks at the vending machine can be purchased and refunded.
 
 System Requirement:
 
-- Node
-- MongoDB
+- Node (v15.14.0)
+- MongoDB (v4.0.4)
 
 Git Clone
 
