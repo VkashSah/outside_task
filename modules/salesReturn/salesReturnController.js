@@ -120,6 +120,7 @@ salesReturnController.returnTransaction = async (req, res) => {
         productInfo.quantity,
         quantity
       );
+      coins.coinDecrement(returnAmount);
 
       // Store in DB
       const newTransaction = new salesReturnSchema({
