@@ -4,8 +4,8 @@
   "description": "First task provided by Outside Tech of Vending machine.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "test": "jest --coverage",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +13,9 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.1.2",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.15"
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.5"
   }
 }
