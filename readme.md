@@ -79,3 +79,11 @@ Start the server
 | :------------ | :------- | :-------------------------------------- |
 | `productName` | `string` | **Required**. Select product for Return |
 | `quantity`    | `number` | **Required**. Quantity of product       |
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm test
+```
