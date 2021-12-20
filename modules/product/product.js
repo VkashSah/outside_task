@@ -43,6 +43,7 @@ products.productQuantityDecrement = (
   quantity
 ) => {
   product[productName].quantity = availableQuantity - quantity;
+  return product[productName].quantity;
 };
 
 products.productQuantityIncrement = (
@@ -51,6 +52,7 @@ products.productQuantityIncrement = (
   quantity
 ) => {
   product[productName].quantity = availableQuantity + quantity;
+  return product[productName].quantity;
 };
 
 module.exports = { product, products };

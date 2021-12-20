@@ -10,6 +10,7 @@ coins.checkCoin = (amount) => {
 
 coins.coinIncrement = (netAmount) => {
   coin = coin + netAmount;
+  return coin;
 };
 
 coins.calculateChange = (productPrice, tender, quantity) => {
@@ -19,11 +20,15 @@ coins.calculateChange = (productPrice, tender, quantity) => {
 coins.compareReturnPriceAndQuantity = async (price, quantity) => {
   let returnAmount = price * quantity;
   if (returnAmount && coin >= returnAmount) {
-    coin = coin - returnAmount;
     return true;
   } else {
-    return { data: coin };
+    return false;
   }
+};
+
+coins.coinDecrement = (netAmount) => {
+  coin = coin - netAmount;
+  return coin;
 };
 
 module.exports = { coins, coin };
