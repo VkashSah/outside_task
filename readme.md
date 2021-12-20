@@ -1,4 +1,4 @@
-# API Endpoints
+# Vending Machine
 
 A vending machine where one can just insert the coin and get back the
 desired drinks. The drinks at the vending machine can be purchased and refunded.
