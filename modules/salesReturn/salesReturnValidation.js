@@ -1,7 +1,7 @@
 const salesReturnValidation = {};
 
-salesReturnValidation.validateTransaction = async (req, res, next) => {
-  let { productName, price, quantity, transactionType } = req.body;
+salesReturnValidation.validateSaleTransaction = async (req, res, next) => {
+  let { productName, tender, quantity } = req.body;
   if (
     productName !== "coke" &&
     productName !== "pepsi" &&
@@ -11,19 +11,34 @@ salesReturnValidation.validateTransaction = async (req, res, next) => {
       message: `${productName} is invalid. Valid product are coke,pepsi,dew.`,
     });
   }
-  if (isNaN(price)) {
+  if (isNaN(tender)) {
     return res.status(422).json({
-      message: `${price} is invalid. Price should be in number`,
+      message: `${tender} is invalid. Tender should be in number`,
     });
   }
-  if (isNaN(quantity)) {
+  if (isNaN(quantity) || quantity < 1) {
     return res.status(422).json({
-      message: `${quantity} is invalid. Quantity should be in number`,
+      message: `${quantity} is invalid. Quantity should be greater than or equal to 1!!!`,
+    });
+  } else {
+    next();
+  }
+};
+
+salesReturnValidation.validateReturnTransaction = async (req, res, next) => {
+  let { productName, quantity } = req.body;
+  if (
+    productName !== "coke" &&
+    productName !== "pepsi" &&
+    productName !== "dew"
+  ) {
+    return res.status(422).json({
+      message: `${productName} is invalid. Valid product are coke,pepsi,dew.`,
     });
   }
-  if (transactionType !== "sale" && transactionType !== "return") {
+  if (isNaN(quantity) || quantity < 1) {
     return res.status(422).json({
-      message: `${transactionType} is invalid. Valid transactionType are sale,return.`,
+      message: `${quantity} is invalid. Quantity should be greater than or equal to 1!!!`,
     });
   } else {
     next();
