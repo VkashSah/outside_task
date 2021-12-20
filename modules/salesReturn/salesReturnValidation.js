@@ -2,6 +2,12 @@ const salesReturnValidation = {};
 
 salesReturnValidation.validateSaleTransaction = async (req, res, next) => {
   let { productName, tender, quantity } = req.body;
+
+  if (!productName || !tender || !quantity) {
+    return res.status(422).json({
+      message: `productName, tender & quantity are required!!!`,
+    });
+  }
   if (
     productName !== "coke" &&
     productName !== "pepsi" &&
@@ -27,6 +33,12 @@ salesReturnValidation.validateSaleTransaction = async (req, res, next) => {
 
 salesReturnValidation.validateReturnTransaction = async (req, res, next) => {
   let { productName, quantity } = req.body;
+
+  if (!productName || !quantity) {
+    return res.status(422).json({
+      message: `productName & quantity are required!!!`,
+    });
+  }
   if (
     productName !== "coke" &&
     productName !== "pepsi" &&
