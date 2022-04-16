@@ -30,14 +30,14 @@ Git Clone
 Go to the project directory
 
 ```bash
-  cd outside_task
+  cd vending_machine
 ```
 
 - create .env file with contents from .env_sample or leave it as it is to run locally with default mongoDB connection `mongodb://localhost/vending_machine`.
 
 ## Run Locally
 
-Install dependencies(make sure your directory is `outside_task`)
+Install dependencies(make sure your directory is `vending_machine`)
 
 ```bash
   npm install
